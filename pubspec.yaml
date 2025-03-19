@@ -1,5 +1,6 @@
 #developer's github: https://github.com/MohammadAmin-Andy
 #mail: pg.mohammadamin@gmail.com
+#app repo: https://github.com/MohammadAmin-Andy/BMI
 
 name: bmi_caculator
 description: "A new Flutter project."
@@ -20,6 +21,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hexcolor: ^3.0.1
 
   #flutter_lints: ^5.0.0
 
@@ -30,9 +32,25 @@ flutter:
     - assets/images/
   
   fonts:
-    - family: Lato
+    - family: mr
       fonts:
-        - asset: assets/fonts/Lato-Black.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
+  
+    - family: mb
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+  
+    - family: mbi
+      fonts:
+        - asset: assets/fonts/Montserrat-BoldItalic.ttf
+  
+    - family: ms
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+  
+    - family: msb
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBoldItalic.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
 
