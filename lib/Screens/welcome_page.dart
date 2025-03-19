@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: gold,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -47,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
-                return GenderScreen();
+                return GenderScreen(); // Replace 'male' with the appropriate value
               },
             ),
           );
@@ -71,7 +71,7 @@ class WelcomeScreen extends StatelessWidget {
 
   Padding _getDiscriptionsText() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 47),
+      padding: const EdgeInsets.symmetric(horizontal: 45),
       child: Column(
         spacing: 15,
         children: [
