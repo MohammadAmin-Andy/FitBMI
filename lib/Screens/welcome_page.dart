@@ -1,4 +1,5 @@
 import 'package:bmi_caculator/Constance/constances.dart';
+import 'package:bmi_caculator/Screens/gender_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
                 _getWelcomeImage(),
                 _getDiscriptionsText(),
                 SizedBox(height: 38),
-                _getStartButton(),
+                _getStartButton(context),
                 SizedBox(height: 30),
               ],
             ),
@@ -31,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 
-  SizedBox _getStartButton() {
+  SizedBox _getStartButton(BuildContext context) {
     return SizedBox(
       width: 332,
       height: 75,
@@ -42,7 +43,15 @@ class WelcomeScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(63),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return GenderScreen();
+              },
+            ),
+          );
+        },
         child: Text(
           'Get Started',
           style: TextStyle(fontFamily: 'mb', fontSize: 18, color: Colors.white),
