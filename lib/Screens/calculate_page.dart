@@ -38,9 +38,12 @@ class _CalculateScreenState extends State<CalculateScreen> {
               children: [
                 _getDiscription(),
                 // SizedBox(height: ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [_getHight(), _getWeight()],
+                Wrap(
+                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  spacing: 5,
+                  runSpacing: 10,
+                  alignment: WrapAlignment.center,
+                  children: [_getHight(), _getWeight(), _getAges()],
                 ),
                 _getContinueButton(context),
               ],
@@ -63,7 +66,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
         children: [
           SizedBox(height: 15),
           Text(
-            'Weight',
+            'Weight(kg)',
             style: TextStyle(
               color: Colors.white,
               fontSize: 15,
@@ -84,7 +87,14 @@ class _CalculateScreenState extends State<CalculateScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  if (weight > 30 && weight <= 200) {
+                    setState(() {
+                      weight--;
+                    });
+                    print(weight);
+                  }
+                },
                 child: Container(
                   height: 42,
                   width: 42,
@@ -96,7 +106,14 @@ class _CalculateScreenState extends State<CalculateScreen> {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  if (weight >= 30 && weight < 200) {
+                    setState(() {
+                      weight++;
+                    });
+                    print(weight);
+                  }
+                },
                 child: Container(
                   height: 42,
                   width: 42,
@@ -126,7 +143,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
         children: [
           SizedBox(height: 15),
           Text(
-            'Hight',
+            'Hight(cm)',
             style: TextStyle(
               color: Colors.white,
               fontSize: 15,
@@ -271,7 +288,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
 
   Text _getDiscription() {
     return Text(
-      'Please choose your gender.',
+      'Please enter your info.',
       style: TextStyle(color: black, fontFamily: 'mrb', fontSize: 27),
     );
   }
