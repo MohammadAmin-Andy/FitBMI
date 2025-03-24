@@ -2,6 +2,7 @@ import 'package:bmi_caculator/Constance/constances.dart';
 import 'package:bmi_caculator/Screens/calculate_page.dart';
 import 'package:bmi_caculator/main.dart';
 import 'package:flutter/material.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 class GenderScreen extends StatefulWidget {
   final String gender;
@@ -71,7 +72,11 @@ class _GenderScreenState extends State<GenderScreen> {
               ),
             );
           }
+          // else {
+          //   Talker().error('Please select a gender before continuing.');
+          // }
         },
+
         child: Text(
           'Continue',
           style: TextStyle(fontFamily: 'mb', fontSize: 18, color: Colors.white),
