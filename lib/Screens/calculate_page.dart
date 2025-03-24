@@ -1,32 +1,27 @@
 import 'package:bmi_caculator/Constance/constances.dart';
+import 'package:bmi_caculator/Screens/result_page.dart';
 import 'package:bmi_caculator/main.dart';
 import 'package:flutter/material.dart';
 
-class CalculateScreen extends StatefulWidget {
+class InfoScreen extends StatefulWidget {
   final String gender;
-  const CalculateScreen({super.key, required this.gender});
+  const InfoScreen({super.key, required this.gender});
 
   @override
-  State<CalculateScreen> createState() => _CalculateScreenState();
+  State<InfoScreen> createState() => _InfoScreenState();
 }
 
-class _CalculateScreenState extends State<CalculateScreen> {
+class _InfoScreenState extends State<InfoScreen> {
   int age = 30;
   int weight = 80;
   int hight = 170;
+  String status = '';
+  String statusDiscriptions = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: gold,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: gold,
-        centerTitle: true,
-        title: Text(
-          'FitBMI',
-          style: TextStyle(fontFamily: 'msb', fontSize: 30, color: black),
-        ),
-      ),
+      appBar: _getAppbar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Center(
@@ -45,11 +40,23 @@ class _CalculateScreenState extends State<CalculateScreen> {
                   alignment: WrapAlignment.center,
                   children: [_getHight(), _getWeight(), _getAges()],
                 ),
-                _getContinueButton(context),
+                _getContinueButton(),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  AppBar _getAppbar() {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: gold,
+      centerTitle: true,
+      title: Text(
+        'FitBMI',
+        style: TextStyle(fontFamily: 'msb', fontSize: 30, color: black),
       ),
     );
   }
@@ -293,7 +300,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
     );
   }
 
-  SizedBox _getContinueButton(BuildContext context) {
+  SizedBox _getContinueButton() {
     return SizedBox(
       width: 332,
       height: 75,
@@ -305,19 +312,121 @@ class _CalculateScreenState extends State<CalculateScreen> {
           ),
         ),
         onPressed: () {
-          // if (gender == 'male' || gender == 'female') {
-          //   print('clicked $gender');
-          //   Navigator.of(context).push(
-          //     MaterialPageRoute(
-          //       builder: (BuildContext context) {
-          //         return CalculateScreen(gender: gender);
-          //       },
-          //     ),
-          //   );
-          // }
-          // // else {
-          // //   Talker().error('Please select a gender before continuing.');
-          // // }
+          double resultBMI = weight / ((hight / 100) * (hight / 100));
+          resultBMI = double.parse(resultBMI.toStringAsFixed(2));
+          // fist here we should manage people by age, people under 65 are young and over 65 are old. && and by genders
+          switch (age) {
+            case var age when age <= 65 && widget.gender == 'male':
+              setState(() {
+                if (resultBMI < 20) {
+                  status = 'Underweight';
+                  statusDiscriptions =
+                      "For individuals with underweight, increasing calorie intake with nutritious, protein-rich foods can help with healthy weight gain. It's recommended to include calorie-dense shakes, nuts, and protein sources in the diet. Additionally, focusing on regular, calorie-rich meals can be beneficial in this process.";
+                } else if (resultBMI >= 20 && resultBMI < 25) {
+                  status = 'Normal';
+                  statusDiscriptions =
+                      "To maintain a normal BMI, it is recommended to follow a balanced diet that includes fruits, vegetables, lean proteins, and whole grains. Regular physical activity, such as walking, running, or resistance training, can also help maintain a healthy and balanced weight. It's important to keep your weight within the healthy range to prevent health issues.";
+                } else if (resultBMI >= 25 && resultBMI < 30) {
+                  status = 'OverWeight';
+                  statusDiscriptions =
+                      "If you're overweight, focusing on a balanced diet with fewer calories, along with regular physical activity, can help reduce weight in a healthy way. Aim to include more fruits, vegetables, and lean proteins while cutting down on processed foods and sugars. Consistency is key to achieving and maintaining a healthy weight.";
+                } else {
+                  status = 'Obese';
+                  statusDiscriptions =
+                      "If you're obese, it's important to follow a suitable diet and exercise plan under the supervision of a doctor or nutritionist. Gradually reducing calorie intake, increasing physical activity, and focusing on healthy nutrition can help with weight loss. In some cases, medical treatments or surgery may be recommended for weight reduction, but this should always be done in consultation with a doctor.";
+                }
+              });
+
+              break;
+
+            case var age when age > 65 && widget.gender == 'male':
+              setState(() {
+                if (resultBMI < 21) {
+                  status = 'Underweight';
+                  statusDiscriptions =
+                      "For individuals with underweight, increasing calorie intake with nutritious, protein-rich foods can help with healthy weight gain. It's recommended to include calorie-dense shakes, nuts, and protein sources in the diet. Additionally, focusing on regular, calorie-rich meals can be beneficial in this process.";
+                } else if (resultBMI >= 21 && resultBMI < 27) {
+                  status = 'Normal';
+                  statusDiscriptions =
+                      "To maintain a normal BMI, it is recommended to follow a balanced diet that includes fruits, vegetables, lean proteins, and whole grains. Regular physical activity, such as walking, running, or resistance training, can also help maintain a healthy and balanced weight. It's important to keep your weight within the healthy range to prevent health issues.";
+                } else if (resultBMI >= 27 && resultBMI < 30) {
+                  status = 'OverWeight';
+                  statusDiscriptions =
+                      "If you're overweight, focusing on a balanced diet with fewer calories, along with regular physical activity, can help reduce weight in a healthy way. Aim to include more fruits, vegetables, and lean proteins while cutting down on processed foods and sugars. Consistency is key to achieving and maintaining a healthy weight.";
+                } else {
+                  status = 'Obese';
+                  statusDiscriptions =
+                      "If you're obese, it's important to follow a suitable diet and exercise plan under the supervision of a doctor or nutritionist. Gradually reducing calorie intake, increasing physical activity, and focusing on healthy nutrition can help with weight loss. In some cases, medical treatments or surgery may be recommended for weight reduction, but this should always be done in consultation with a doctor.";
+                }
+              });
+              break;
+
+            case var age when age <= 65 && widget.gender == 'female':
+              setState(() {
+                if (resultBMI < 19) {
+                  status = 'Underweight';
+                  statusDiscriptions =
+                      "For individuals with underweight, increasing calorie intake with nutritious, protein-rich foods can help with healthy weight gain. It's recommended to include calorie-dense shakes, nuts, and protein sources in the diet. Additionally, focusing on regular, calorie-rich meals can be beneficial in this process.";
+                } else if (resultBMI >= 19 && resultBMI < 24) {
+                  status = 'Normal';
+                  statusDiscriptions =
+                      "To maintain a normal BMI, it is recommended to follow a balanced diet that includes fruits, vegetables, lean proteins, and whole grains. Regular physical activity, such as walking, running, or resistance training, can also help maintain a healthy and balanced weight. It's important to keep your weight within the healthy range to prevent health issues.";
+                } else if (resultBMI >= 24 && resultBMI < 29) {
+                  status = 'OverWeight';
+                  statusDiscriptions =
+                      "If you're overweight, focusing on a balanced diet with fewer calories, along with regular physical activity, can help reduce weight in a healthy way. Aim to include more fruits, vegetables, and lean proteins while cutting down on processed foods and sugars. Consistency is key to achieving and maintaining a healthy weight.";
+                } else {
+                  status = 'Obese';
+                  statusDiscriptions =
+                      "If you're obese, it's important to follow a suitable diet and exercise plan under the supervision of a doctor or nutritionist. Gradually reducing calorie intake, increasing physical activity, and focusing on healthy nutrition can help with weight loss. In some cases, medical treatments or surgery may be recommended for weight reduction, but this should always be done in consultation with a doctor.";
+                }
+              });
+              break;
+
+            // case var age when age > 65 && widget.gender == 'female':
+            //   break;
+            case var age when age > 65 && widget.gender == 'female':
+              setState(() {
+                if (resultBMI < 21) {
+                  status = 'Underweight';
+                  statusDiscriptions =
+                      "For individuals with underweight, increasing calorie intake with nutritious, protein-rich foods can help with healthy weight gain. It's recommended to include calorie-dense shakes, nuts, and protein sources in the diet. Additionally, focusing on regular, calorie-rich meals can be beneficial in this process.";
+                } else if (resultBMI >= 21 && resultBMI < 27) {
+                  status = 'Normal';
+                  statusDiscriptions =
+                      "To maintain a normal BMI, it is recommended to follow a balanced diet that includes fruits, vegetables, lean proteins, and whole grains. Regular physical activity, such as walking, running, or resistance training, can also help maintain a healthy and balanced weight. It's important to keep your weight within the healthy range to prevent health issues.";
+                } else if (resultBMI >= 27 && resultBMI < 30) {
+                  status = 'OverWeight';
+                  statusDiscriptions =
+                      "If you're overweight, focusing on a balanced diet with fewer calories, along with regular physical activity, can help reduce weight in a healthy way. Aim to include more fruits, vegetables, and lean proteins while cutting down on processed foods and sugars. Consistency is key to achieving and maintaining a healthy weight.";
+                } else {
+                  status = 'Obese';
+                  statusDiscriptions =
+                      "If you're obese, it's important to follow a suitable diet and exercise plan under the supervision of a doctor or nutritionist. Gradually reducing calorie intake, increasing physical activity, and focusing on healthy nutrition can help with weight loss. In some cases, medical treatments or surgery may be recommended for weight reduction, but this should always be done in consultation with a doctor.";
+                }
+              });
+              break;
+
+            default:
+              setState(() {
+                status = 'Unknown';
+                statusDiscriptions = 'Unable to determine BMI status.';
+              });
+              break;
+          }
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return ResultScreen(
+                  age: age,
+                  gender: widget.gender,
+                  resultBMI: resultBMI,
+                  status: status,
+                  statusDiscriptions: statusDiscriptions,
+                );
+              },
+            ),
+          );
         },
 
         child: Text(

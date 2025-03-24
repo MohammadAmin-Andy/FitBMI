@@ -19,15 +19,7 @@ class _GenderScreenState extends State<GenderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: gold,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: gold,
-        centerTitle: true,
-        title: Text(
-          'FitBMI',
-          style: TextStyle(fontFamily: 'msb', fontSize: 30, color: black),
-        ),
-      ),
+      appBar: _getAppbar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Center(
@@ -50,6 +42,18 @@ class _GenderScreenState extends State<GenderScreen> {
     );
   }
 
+  AppBar _getAppbar() {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: gold,
+      centerTitle: true,
+      title: Text(
+        'FitBMI',
+        style: TextStyle(fontFamily: 'msb', fontSize: 30, color: black),
+      ),
+    );
+  }
+
   SizedBox _getContinueButton(BuildContext context, String gender) {
     return SizedBox(
       width: 332,
@@ -67,7 +71,7 @@ class _GenderScreenState extends State<GenderScreen> {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return CalculateScreen(gender: gender);
+                  return InfoScreen(gender: gender);
                 },
               ),
             );
