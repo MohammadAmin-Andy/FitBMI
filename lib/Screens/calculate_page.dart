@@ -1,6 +1,5 @@
-import 'package:bmi_caculator/Constance/constances.dart';
-import 'package:bmi_caculator/Screens/result_page.dart';
-import 'package:bmi_caculator/main.dart';
+import 'package:fitbmi/Constance/constances.dart';
+import 'package:fitbmi/Screens/result_page.dart';
 import 'package:flutter/material.dart';
 
 class InfoScreen extends StatefulWidget {

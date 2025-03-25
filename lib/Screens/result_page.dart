@@ -1,4 +1,4 @@
-import 'package:bmi_caculator/Constance/constances.dart';
+import 'package:fitbmi/Constance/constances.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {

@@ -2,10 +2,10 @@
 #mail: pg.mohammadamin@gmail.com
 #app repo: https://github.com/MohammadAmin-Andy/BMI
 
-name: bmi_caculator
-description: "A new Flutter project."
+name: fitbmi
+description: "BMI calculator app"
 
-publish_to: 'none'
+publish_to: 'Android app store' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
@@ -17,12 +17,24 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  
+
+flutter_icons:
+  android: true
+  #ios: true
+  image_path: "assets/images/logo.jpg"  
+  adaptive_icon_background: "#cccc99"  
+  adaptive_icon_foreground: "assets/images/logo.jpg"  
+
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   hexcolor: ^3.0.1
   talker_flutter: ^4.7.1
+  
 
   #flutter_lints: ^5.0.0
 

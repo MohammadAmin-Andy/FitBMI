@@ -1,5 +1,5 @@
-import 'package:bmi_caculator/Constance/constances.dart';
-import 'package:bmi_caculator/Screens/gender_page.dart';
+import 'package:fitbmi/Constance/constances.dart';
+import 'package:fitbmi/Screens/gender_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {

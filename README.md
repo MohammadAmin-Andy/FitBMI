@@ -1,16 +1,18 @@
-# bmi_caculator
+# FitBMI  
 
-A new Flutter project.
+A Simple & Effective BMI Calculator  
 
-## Getting Started
+## Overview  
 
-This project is a starting point for a Flutter application.
+FitBMI helps you calculate your Body Mass Index (BMI) quickly and accurately, providing insights into your health and fitness levels.  
 
-A few resources to get you started if this is your first Flutter project:
+## Getting Started  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project serves as a foundation for a Flutter-based BMI calculator.  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you're new to Flutter, here are some useful resources to get started:  
+
+- [Flutter Codelab: Build Your First App](https://docs.flutter.dev/get-started/codelab)  
+- [Flutter Cookbook: Useful Code Samples](https://docs.flutter.dev/cookbook)  
+
+For more guidance, visit the official [Flutter documentation](https://docs.flutter.dev/), where you'll find tutorials, best practices, and a comprehensive API reference.  

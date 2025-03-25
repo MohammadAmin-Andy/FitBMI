@@ -1,8 +1,8 @@
-import 'package:bmi_caculator/Constance/constances.dart';
-import 'package:bmi_caculator/Screens/calculate_page.dart';
-import 'package:bmi_caculator/main.dart';
+import 'package:fitbmi/Constance/constances.dart';
+import 'package:fitbmi/Screens/calculate_page.dart';
+// import 'package:FitBMI/Screens/info_page.dart';
 import 'package:flutter/material.dart';
-import 'package:talker_flutter/talker_flutter.dart';
+// import 'package:talker_flutter/talker_flutter.dart';
 
 class GenderScreen extends StatefulWidget {
   final String gender;
