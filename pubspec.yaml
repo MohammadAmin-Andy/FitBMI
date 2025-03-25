@@ -15,7 +15,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  rename_app: ^1.6.2
   cupertino_icons: ^1.0.8
   
 
@@ -34,6 +34,7 @@ dev_dependencies:
     sdk: flutter
   hexcolor: ^3.0.1
   talker_flutter: ^4.7.1
+  
   
 
   #flutter_lints: ^5.0.0
