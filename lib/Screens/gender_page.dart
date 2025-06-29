@@ -14,6 +14,8 @@ class GenderScreen extends StatefulWidget {
 
 class _GenderScreenState extends State<GenderScreen> {
   String gender = '';
+  Color maleColor = lightGreenCont;
+  Color femaleColor = lightOrangeCont;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class _GenderScreenState extends State<GenderScreen> {
                 _getMaleSelector(),
                 getFemaleSelector(),
                 SizedBox(height: 60),
-                _getContinueButton(context, gender),
+                //_getContinueButton(context, gender),
               ],
             ),
           ),
@@ -95,13 +97,22 @@ class _GenderScreenState extends State<GenderScreen> {
         setState(() {
           gender = 'female';
           print(gender);
+          selectedColor(gender);
+        });
+
+        Future.delayed(Duration(milliseconds: 200), () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) => InfoScreen(gender: gender),
+            ),
+          );
         });
       },
       child: Container(
         width: 370,
         height: 180,
         decoration: BoxDecoration(
-          color: lightOrangeCont,
+          color: femaleColor,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Row(
@@ -129,13 +140,21 @@ class _GenderScreenState extends State<GenderScreen> {
         setState(() {
           gender = 'male';
           print(gender);
+          selectedColor(gender);
+        });
+        Future.delayed(Duration(milliseconds: 200), () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) => InfoScreen(gender: gender),
+            ),
+          );
         });
       },
       child: Container(
         width: 370,
         height: 180,
         decoration: BoxDecoration(
-          color: lightGreenCont,
+          color: maleColor,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Row(
@@ -158,5 +177,26 @@ class _GenderScreenState extends State<GenderScreen> {
       'Please choose your gender.',
       style: TextStyle(color: black, fontFamily: 'mrb', fontSize: 27),
     );
+  }
+
+  void selectedColor(String gender) {
+    if (gender == 'male') {
+      maleColor = selectedMaleColor;
+      femaleColor = lightOrangeCont;
+    } else if (gender == 'female') {
+      femaleColor = selectedFemaleColor;
+      maleColor = lightGreenCont;
+    } else {
+      maleColor = lightGreenCont;
+      femaleColor = lightOrangeCont;
+    }
+  }
+
+  @override
+  void dispose() {
+    gender = '';
+    maleColor = lightGreenCont;
+    femaleColor = lightOrangeCont;
+    super.dispose();
   }
 }
