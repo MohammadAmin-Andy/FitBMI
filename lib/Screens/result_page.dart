@@ -1,4 +1,5 @@
 import 'package:fitbmi/Constance/constances.dart';
+import 'package:fitbmi/Screens/gender_page.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class ResultScreen extends StatelessWidget {
         double.parse(resultBMI.toStringAsFixed(2));
     return Scaffold(
       backgroundColor: gold,
-      appBar: _getAppbar(),
+      appBar: _getAppbar(context),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -112,7 +113,7 @@ class ResultScreen extends StatelessWidget {
     );
   }
 
-  AppBar _getAppbar() {
+  AppBar _getAppbar(context) {
     return AppBar(
       elevation: 0,
       backgroundColor: gold,
@@ -121,6 +122,21 @@ class ResultScreen extends StatelessWidget {
         'FitBMI',
         style: TextStyle(fontFamily: 'msb', fontSize: 30, color: black),
       ),
+      actions: [
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) => GenderScreen(),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(Icons.replay, color: Colors.black, size: 20),
+          ),
+        ),
+      ],
     );
   }
 }

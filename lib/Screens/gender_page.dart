@@ -1,8 +1,6 @@
 import 'package:fitbmi/Constance/constances.dart';
 import 'package:fitbmi/Screens/calculate_page.dart';
-// import 'package:FitBMI/Screens/info_page.dart';
 import 'package:flutter/material.dart';
-// import 'package:talker_flutter/talker_flutter.dart';
 
 class GenderScreen extends StatefulWidget {
   final String gender;
@@ -53,41 +51,7 @@ class _GenderScreenState extends State<GenderScreen> {
         'FitBMI',
         style: TextStyle(fontFamily: 'msb', fontSize: 30, color: black),
       ),
-    );
-  }
-
-  SizedBox _getContinueButton(BuildContext context, String gender) {
-    return SizedBox(
-      width: 332,
-      height: 75,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: green,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(63),
-          ),
-        ),
-        onPressed: () {
-          if (gender == 'male' || gender == 'female') {
-            print('clicked $gender');
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return InfoScreen(gender: gender);
-                },
-              ),
-            );
-          }
-          // else {
-          //   Talker().error('Please select a gender before continuing.');
-          // }
-        },
-
-        child: Text(
-          'Continue',
-          style: TextStyle(fontFamily: 'mb', fontSize: 18, color: Colors.white),
-        ),
-      ),
+      automaticallyImplyLeading: false,
     );
   }
 
